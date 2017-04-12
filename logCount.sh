@@ -14,3 +14,9 @@ do
 done
 echo "总行数：" $total_line;
 echo "总大小：" $total_size;
+
+#也可以使用 find . -name "*20170318.log.gz" -exec ls -l {} \; |awk 'BEGIN{count=0;size=0;} \
+#     {count = count + 1; size = size + $5/1024;} \
+#     END{print "Total count " count; \
+#       print "Total Size " size " KB"}'
+#来计算，但日志是gzip压缩过的，无法直接计算行数
